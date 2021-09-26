@@ -1,0 +1,34 @@
+<div id="app">
+  {{title}}
+  <comp v-model="foo"></comp>
+</div>
+
+<script src="http://unpkg.com/vue@next"></script>
+<script>
+
+  function useTitle() {
+    const state = Vue.reactive({
+      title: 'vue3, hello!'
+    })
+    setTimeout(() => {
+      state.title = 'new title'
+    })
+    return state
+  }
+
+  const app = Vue.createApp({
+    data() {
+      return {
+        title: 'hello, vue3!'
+      }
+    },
+    // setup() {
+    //   const state = useTitle()
+
+    //   const counter = ref(1)
+
+    //   return state
+    // }
+  })
+  app.mount('#app')
+</script>
